@@ -1,20 +1,43 @@
+  
 
 
-const url = 'https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromPublicTransit?distance=1000&type=Taxi';
-const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key': '20134425d0msh72452ccaece14edp13103ejsn21d1a8af6e4c',
+
+
+
+document.getElementById('carbon-form').addEventListener('submit', function(event) {
+	event.preventDefault(); // Prevent form from refreshing the page
+	
+	
+	const distance = document.getElementById('distance').value;
+	const type = document.getElementById('type').value;
+	
+	const apiUrl = `https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromPublicTransit?distance=${distance}&type=${type}`;
+	
+	const options = {
+	  method: 'GET',
+	  headers: {
+		'x-rapidapi-key': '7c5088b712msh926ce6c498afd12p128d06jsn1cb805623d59',
+		'x-rapidapi-host': 'carbonfootprint1.p.rapidapi.com' // Added the host header
+	  }
+	};
+  
+
+	fetch(apiUrl, options)
+	  .then(response => {
+		if (!response.ok) {
+		  throw new Error(`HTTP error! status: ${response.status}`); 
+		}
+		return response.json();
+	  })
+	  .then(data => {
 		
-	}
-};
+		document.getElementById('carbon-output').innerText = `Carbon Equivalent: ${data.carbonEquivalent} kg CO2`;
+	  })
+	  .catch(error => {
+		console.error('Error:', error);
+		document.getElementById('carbon-output').innerText = 'An error occurred while fetching the data. Please try again.';
+	  });
+  });
+  
+  
 
-async function fetchUrl() {
-
-    const response = await fetch(url, options)
-    const data = await response.json()
-    console.log(data.carbonEquivalent)
-    
-}
-
-fetchUrl()

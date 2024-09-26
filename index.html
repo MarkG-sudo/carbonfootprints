@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carbon Footprint</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
 </head>
+
 <body>
     <nav>
-        <div><a href=""><img src="" alt=""></a></div>
+        <div><a href=""><img src="./assets/Greenhues white logo (1).png" alt=""></a></div>
         <div>
             <a href="">Home</a>
-            <a href="">Calculator</a>
+            <a class="link" href="">Offsetting</a>
             <a href="">About</a>
         </div>
     </nav>
@@ -20,17 +22,44 @@
 
     <section class="hero">
 
-        <H1>Measure Calbon Footprint</H1>
+        <h1>Measure Your Carbon Footprint</h1>
 
-       <div class="flex-hero">
-        <div>
-            <img src="./assets/electric-car.png" alt="">
+        <div class="flex-hero">
+            <div>
+                <img src="./assets/electric-car.png" alt="">
+            </div>
+            <div>
+                <img src="./assets/bus.png" alt="">
+            </div>
+            <div>
+                <img src="./assets/train.png" alt="">
+            </div>
+            <div>
+                <img src="./assets/airplane (1).png" alt="">
+            </div>
+            
         </div>
-        <div>
-            <img src="./assets/bus.png" alt="">
-        </div>
-        <div>
-            <img src="./assets/airplane (1).png" alt="">
+
+        <div id="results" class="result">
+            <form id="carbon-form">
+                <label for="distance">Distance (in km):</label>
+                <input type="number" id="distance" name="distance" required>
+              
+                <label for="type">Transport Type:</label>
+                <select id="type" name="type" required>
+                  <option value="Taxi">Taxi</option>
+                  <option value="Coach">Bus</option>
+                  <option value="NationalTrain">Train</option>
+                  <option value="ClassicBus">Airplane</option>
+                </select>
+              
+                <button class="submit" type="submit">Calculate Carbon Footprint</button>
+              </form>
+              
+              <div id="carbon-output">Carbon Equivalent: </div>
+              
+
+                
         </div>
     </section>
 
@@ -38,7 +67,10 @@
 
         <div class="main-cont">
             <h1>Calculate</h1>
-            <p> <span>Quick Tip</span>: If you get any of your home energy from renewables you can enter the amount in the relevant "Renewables ... %" field and your footprint will be calculated in proportion to the amount of renewables in the mix.</p>
+            <p> <span>Quick Tip</span>: If you get any of your home energy from renewables you can enter the amount in
+                the relevant "Renewables ... %" field and your footprint will be calculated in proportion to the amount
+                of renewables in the mix.</p>
+            <img src="./assets/landing-img.png" alt="">
         </div>
         <div class="side">
 
@@ -51,4 +83,5 @@
 
 
 </body>
+
 </html>
